@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff4fb">
+<title>Сладкая клятва для Маши 🍭</title>
+<style>
+  :root{
+    --pink:#ff5f98;
+    --pink2:#ff91bd;
+    --text:#472d38;
+    --soft:#7a5c69;
+    --shadow:0 18px 55px rgba(118, 68, 93, .18);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{
+    margin:0;
+    min-height:100%;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  }
+  body{
+    min-height:100svh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    color:var(--text);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    background:
+      radial-gradient(circle at 10% 10%, rgba(255,255,255,.85) 0 6%, transparent 7%),
+      radial-gradient(circle at 88% 18%, rgba(255,255,255,.8) 0 5%, transparent 6%),
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,.65) 0 5%, transparent 6%),
+      linear-gradient(160deg,#ffe6f2 0%, #fff3ef 35%, #fff9f0 65%, #f3e9ff 100%);
+    padding:max(14px, env(safe-area-inset-top)) 14px max(120px, calc(env(safe-area-inset-bottom) + 100px));
+    touch-action:pan-y manipulation;
+  }
+
+  .spark{
+    position:fixed;
+    font-size:clamp(18px,4vw,28px);
+    user-select:none;
+    pointer-events:none;
+    animation:floaty 4.8s ease-in-out infinite alternate;
+    opacity:.85;
+    z-index:0;
+  }
+  .sp1{left:6%;top:5%;animation-delay:-1s}
+  .sp2{right:7%;top:6%;animation-delay:-2.2s}
+  .sp3{left:7%;bottom:8%;animation-delay:-3s}
+  .sp4{right:8%;bottom:7%;animation-delay:-.8s}
+  .sp5{left:15%;top:23%;animation-delay:-1.7s}
+  .sp6{right:15%;bottom:23%;animation-delay:-2.8s}
+  @keyframes floaty{to{transform:translateY(-14px) rotate(10deg)}}
+
+  .sweet-shot{
+    position:fixed;
+    width:86px;
+    height:108px;
+    border-radius:18px;
+    background:rgba(255,255,255,.92);
+    border:1px solid rgba(255,255,255,.96);
+    box-shadow:0 12px 30px rgba(127,83,105,.16);
+    padding:8px;
+    z-index:0;
+    overflow:hidden;
+    user-select:none;
+    pointer-events:none;
+    transform-origin:center;
+  }
+  .sweet-shot::before{
+    content:"";
+    position:absolute;
+    inset:6px 6px 25px 6px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#fff8fb,#fff9f1);
+    border:1px solid #ffe6ef;
+  }
+  .sweet-shot .cap{
+    position:absolute;
+    left:0; right:0; bottom:6px;
+    text-align:center;
+    font-size:11px;
+    font-weight:800;
+    color:#8a6574;
+    letter-spacing:.02em;
+  }
+  .sweet-shot svg{
+    position:absolute;
+    left:11px;
+    top:12px;
+    width:64px;
+    height:64px;
+    z-index:2;
+  }
+
+  .s1{left:2%; top:12%; transform:rotate(-9deg)}
+  .s2{right:2%; top:14%; transform:rotate(8deg)}
+  .s3{left:3%; bottom:13%; transform:rotate(7deg)}
+  .s4{right:2%; bottom:15%; transform:rotate(-7deg)}
+  .s5{left:8%; top:39%; transform:rotate(-6deg)}
+  .s6{right:8%; top:41%; transform:rotate(6deg)}
+
+  .card{
+    width:min(92vw,460px);
+    min-height:650px;
+    flex:0 0 auto;
+    position:relative;
+    z-index:2;
+    overflow:hidden;
+    border-radius:34px;
+    padding:24px 22px 22px;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.86);
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    margin-bottom:18px;
+  }
+
+  .badge{
+    font-size:12px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:#ab5f7c;
+    padding:9px 13px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#fff1f7,#fff9f1);
+    border:1px solid #ffd8e8;
+  }
+
+  .hero-sweets{
+    margin:18px 0 10px;
+    display:flex;
+    gap:10px;
+    align-items:flex-end;
+    justify-content:center;
+  }
+  .sweet-bubble{
+    width:72px;
+    height:72px;
+    border-radius:22px;
+    display:grid;
+    place-items:center;
+    font-size:36px;
+    background:linear-gradient(135deg,#fff8fb,#fff8f0);
+    border:1px solid #ffe0ec;
+    box-shadow:0 10px 22px rgba(137,86,106,.12);
+    transform:rotate(-4deg);
+  }
+  .sweet-bubble:nth-child(2){transform:translateY(-8px) rotate(4deg)}
+  .sweet-bubble:nth-child(3){transform:rotate(-3deg)}
+
+  h1{
+    margin:2px 0 10px;
+    font-size:clamp(30px,7.5vw,40px);
+    line-height:1.02;
+    letter-spacing:-.04em;
+  }
+  .lead{
+    margin:0;
+    max-width:330px;
+    font-size:16px;
+    line-height:1.45;
+    color:var(--soft);
+  }
+
+  .oath{
+    width:100%;
+    margin:18px 0 0;
+    padding:16px 15px;
+    border-radius:22px;
+    background:linear-gradient(135deg,#fff8f2,#fff1f8);
+    border:1px solid #ffe0d2;
+    font-weight:800;
+    line-height:1.48;
+    color:#5a3946;
+  }
+
+  .gallery{
+    width:100%;
+    margin:15px 0 2px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+  }
+  .mini{
+    height:78px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#fff8fb,#fff7f0);
+    border:1px solid #ffe2ed;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 7px 16px rgba(131,87,106,.08);
+  }
+  .mini .emo{font-size:29px; line-height:1}
+  .mini .txt{margin-top:6px; font-size:11px; font-weight:800; color:#936a79}
+
+  .question{
+    margin:15px 0 0;
+    font-size:20px;
+    font-weight:900;
+  }
+  .sub{
+    margin:5px 0 0;
+    font-size:13px;
+    color:#aa7d8e;
+  }
+
+  .arena{
+    position:relative;
+    width:100%;
+    height:152px;
+    margin-top:auto;
+  }
+  button{
+    border:0;
+    font:inherit;
+    font-weight:900;
+    border-radius:18px;
+    min-width:136px;
+    height:56px;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    box-shadow:0 9px 20px rgba(111,50,77,.14);
+    cursor:pointer;
+    user-select:none;
+    -webkit-user-select:none;
+  }
+  #yes{
+    left:8px;
+    color:#fff;
+    background:linear-gradient(135deg,var(--pink),var(--pink2));
+  }
+  #yes:active{transform:translateY(-50%) scale(.97)}
+  #no{
+    right:8px;
+    color:#785667;
+    background:#fff;
+    border:1px solid #f0d4df;
+    transition:left .15s ease, top .15s ease, transform .15s ease;
+  }
+
+  .hint{
+    min-height:20px;
+    margin-top:-2px;
+    font-size:13px;
+    color:#b08093;
+  }
+
+  .success{
+    display:none;
+    position:absolute;
+    inset:0;
+    z-index:30;
+    background:linear-gradient(155deg,#fff6fb,#fffdf4);
+    padding:28px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+  }
+  .success.show{display:flex; animation:fade .35s ease both}
+  @keyframes fade{from{opacity:0;transform:scale(.96)}}
+  .big{font-size:78px;animation:pop .55s cubic-bezier(.2,.9,.3,1.35)}
+  @keyframes pop{from{transform:scale(.4) rotate(-10deg)}}
+  .success h2{
+    margin:12px 0 10px;
+    font-size:34px;
+    line-height:1.04;
+  }
+  .success p{
+    margin:0;
+    font-size:17px;
+    line-height:1.48;
+    max-width:320px;
+    color:#6c5560;
+  }
+  .stamp{
+    margin-top:18px;
+    padding:12px 16px;
+    border-radius:16px;
+    border:2px dashed #ff97b7;
+    background:#fff;
+    color:#db557f;
+    font-weight:900;
+    transform:rotate(-3deg);
+  }
+
+  .burst{
+    position:fixed;
+    pointer-events:none;
+    z-index:100;
+    font-size:26px;
+    animation:burst 1.35s ease-out forwards;
+  }
+  @keyframes burst{
+    to{
+      transform:translate(var(--x), var(--y)) rotate(var(--r));
+      opacity:0;
+    }
+  }
+
+  @media (max-height:730px){
+    .sweet-shot{display:none}
+    .card{min-height:auto;padding-top:18px}
+    .hero-sweets{margin-top:12px}
+    .sweet-bubble{width:62px;height:62px;font-size:30px}
+    .gallery{gap:7px}
+    .mini{height:70px}
+    .arena{height:150px}
+  }
+</style>
+</head>
+<body>
+  <div class="spark sp1">✨</div>
+  <div class="spark sp2">🍬</div>
+  <div class="spark sp3">💖</div>
+  <div class="spark sp4">🍭</div>
+  <div class="spark sp5">🧁</div>
+  <div class="spark sp6">🍫</div>
+
+  <div class="sweet-shot s1">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <defs>
+        <linearGradient id="d1" x1="0" x2="1">
+          <stop offset="0%" stop-color="#ffb1cc"/>
+          <stop offset="100%" stop-color="#ffdc9d"/>
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="26" fill="url(#d1)"/>
+      <circle cx="50" cy="50" r="12" fill="#fff8fb"/>
+      <path d="M25 45c8 8 15-6 23 1s12-4 19 1 12 2 17-2" stroke="#ff78a8" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <circle cx="36" cy="37" r="3" fill="#7fd6ff"/><circle cx="62" cy="34" r="3" fill="#ffd66e"/><circle cx="69" cy="56" r="3" fill="#ff87b1"/><circle cx="39" cy="62" r="3" fill="#92efb5"/>
+    </svg>
+    <div class="cap">пончик</div>
+  </div>
+
+  <div class="sweet-shot s2">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M30 53h40l-6 20H36z" fill="#ffcea0"/>
+      <path d="M28 53c0-14 10-24 22-24 7 0 13 3 17 8 2-1 4-1 6-1 10 0 17 8 17 18H28z" fill="#ff8fb1"/>
+      <path d="M39 39c4 5 7 4 10 0 3 5 6 5 10 0 3 6 6 6 10 0" stroke="#fff3f6" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="48" cy="47" r="2.6" fill="#ffe06d"/>
+      <circle cx="56" cy="43" r="2.6" fill="#84d8ff"/>
+      <circle cx="64" cy="48" r="2.6" fill="#96efb7"/>
+    </svg>
+    <div class="cap">капкейк</div>
+  </div>
+
+  <div class="sweet-shot s3">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <rect x="20" y="36" width="60" height="28" rx="8" fill="#ff78a8"/>
+      <rect x="28" y="31" width="12" height="38" rx="4" fill="#ffd6e4"/>
+      <rect x="60" y="31" width="12" height="38" rx="4" fill="#ffd6e4"/>
+      <circle cx="28" cy="50" r="6" fill="#fff"/>
+      <circle cx="72" cy="50" r="6" fill="#fff"/>
+      <circle cx="28" cy="50" r="2" fill="#ff9abb"/>
+      <circle cx="72" cy="50" r="2" fill="#ff9abb"/>
+      <circle cx="50" cy="50" r="6" fill="#fff8b4"/>
+    </svg>
+    <div class="cap">конфета</div>
+  </div>
+
+  <div class="sweet-shot s4">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <rect x="28" y="26" width="44" height="52" rx="8" fill="#7b4e3a"/>
+      <rect x="34" y="32" width="32" height="40" rx="5" fill="#9a634c"/>
+      <line x1="50" y1="32" x2="50" y2="72" stroke="#7b4e3a" stroke-width="3"/>
+      <line x1="34" y1="45" x2="66" y2="45" stroke="#7b4e3a" stroke-width="3"/>
+      <line x1="34" y1="58" x2="66" y2="58" stroke="#7b4e3a" stroke-width="3"/>
+      <rect x="24" y="22" width="52" height="8" rx="4" fill="#c6917c"/>
+    </svg>
+    <div class="cap">шоколад</div>
+  </div>
+
+  <div class="sweet-shot s5">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="38" cy="46" r="16" fill="#ff9fb7"/>
+      <circle cx="62" cy="46" r="16" fill="#fff0b6"/>
+      <rect x="24" y="42" width="52" height="10" rx="5" fill="#fff8f3"/>
+      <circle cx="38" cy="46" r="7" fill="#ffd8e4"/>
+      <circle cx="62" cy="46" r="7" fill="#fff8db"/>
+    </svg>
+    <div class="cap">макаронс</div>
+  </div>
+
+  <div class="sweet-shot s6">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M32 38h36l-4 31H36z" fill="#ffd2a1"/>
+      <path d="M28 39c0-11 10-18 22-18 6 0 12 2 16 7 2-1 4-1 6-1 9 0 16 6 16 15H28z" fill="#fff"/>
+      <path d="M29 42h58" stroke="#ff9ec0" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="50" cy="30" r="4" fill="#ea3d4f"/>
+      <path d="M50 26c-3-6 5-9 7-5" stroke="#5fb86b" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="cap">тортик</div>
+  </div>
+
+  <main class="card">
+    <div class="badge">сладкий договор любви и заботы</div>
+
+    <div class="hero-sweets" aria-hidden="true">
+      <div class="sweet-bubble">🍩</div>
+      <div class="sweet-bubble">🍰</div>
+      <div class="sweet-bubble">🍬</div>
+    </div>
+
+    <h1>Сладкая клятва<br>для Маши 🍓</h1>
+    <p class="lead">Перед тобой крайне важный и очень ответственный выбор. Подумай хорошенько… хотя правильный ответ тут, кажется, очевиден 😌</p>
+
+    <div class="oath">
+      «Я клянусь каждый день покупать Маше что-нибудь сладкое:
+      шоколадку, конфетки, пироженку, тортик, пончик — в общем, всё самое вкусное.
+      Без отговорок. Без “потом”. Без “я забыл”.» 💗
+    </div>
+
+    <div class="gallery">
+      <div class="mini"><div class="emo">🍫</div><div class="txt">шоколадка</div></div>
+      <div class="mini"><div class="emo">🧁</div><div class="txt">капкейк</div></div>
+      <div class="mini"><div class="emo">🍬</div><div class="txt">конфетки</div></div>
+      <div class="mini"><div class="emo">🍩</div><div class="txt">пончики</div></div>
+      <div class="mini"><div class="emo">🍭</div><div class="txt">леденцы</div></div>
+      <div class="mini"><div class="emo">🍰</div><div class="txt">тортики</div></div>
+    </div>
+
+    <div class="question">Ты принимаешь эту сладкую клятву?</div>
+    <div class="sub">Подсказка: кнопка «Нет» что-то нервничает…</div>
+
+    <div class="arena" id="arena">
+      <button id="yes">Да, клянусь 💖</button>
+      <button id="no">Нет 🙄</button>
+    </div>
+    <div class="hint" id="hint">Выбор полностью добровольный... почти 🍭</div>
+
+    <section class="success" id="success">
+      <div class="big">🍬</div>
+      <h2>Клятва принята!</h2>
+      <p>Поздравляем. С этого момента для Маши официально активирована ежедневная доставка сладкого, вкусняшек и хорошего настроения 💗</p>
+      <div class="stamp">ОДОБРЕНО СЛАДКОЙ КОМИССИЕЙ ✓</div>
+    </section>
+  </main>
+
+<script>
+(() => {
+  const arena = document.getElementById('arena');
+  const no = document.getElementById('no');
+  const yes = document.getElementById('yes');
+  const success = document.getElementById('success');
+  const hint = document.getElementById('hint');
+  let escapes = 0;
+
+  function moveNo() {
+    const a = arena.getBoundingClientRect();
+    const b = no.getBoundingClientRect();
+
+    const maxX = Math.max(0, a.width - b.width - 8);
+    const maxY = Math.max(0, a.height - b.height - 8);
+
+    let x, y, tries = 0;
+    do {
+      x = 4 + Math.random() * Math.max(1, maxX - 4);
+      y = 4 + Math.random() * Math.max(1, maxY - 4);
+      tries++;
+    } while (tries < 20 && x < 165 && y > 28 && y < 112);
+
+    no.style.right = 'auto';
+    no.style.left = x + 'px';
+    no.style.top = y + 'px';
+    no.style.transform = 'none';
+
+    escapes++;
+    const messages = [
+      'Ой… «Нет» убежало 🍬',
+      'Похоже, сладкое побеждает 😌',
+      'Не-а, так легко не отделаешься 🍩',
+      'Кнопка «Нет» против Машиных вкусняшек.',
+      'Ну почти поймал 😂',
+      'Кажется, пора нажать «Да» 💖'
+    ];
+    hint.textContent = messages[Math.min(escapes - 1, messages.length - 1)];
+  }
+
+  no.addEventListener('pointerenter', (e) => {
+    if (e.pointerType !== 'touch') moveNo();
+  });
+  no.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    moveNo();
+  });
+  no.addEventListener('click', (e) => {
+    e.preventDefault();
+    moveNo();
+  });
+  arena.addEventListener('pointermove', (e) => {
+    const b = no.getBoundingClientRect();
+    const cx = Math.max(b.left, Math.min(e.clientX, b.right));
+    const cy = Math.max(b.top, Math.min(e.clientY, b.bottom));
+    const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
+    if (dist < 22 && e.pointerType !== 'touch') moveNo();
+  });
+
+  yes.addEventListener('click', () => {
+    success.classList.add('show');
+    if (navigator.vibrate) navigator.vibrate([40, 50, 80]);
+
+    const items = ['🍭','🍬','🍫','🍩','🍰','🧁','💖','✨'];
+    const centerX = innerWidth / 2;
+    const centerY = innerHeight / 2;
+
+    for (let i = 0; i < 38; i++) {
+      const el = document.createElement('div');
+      el.className = 'burst';
+      el.textContent = items[Math.floor(Math.random() * items.length)];
+      el.style.left = centerX + 'px';
+      el.style.top = centerY + 'px';
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 110 + Math.random() * 260;
+      el.style.setProperty('--x', Math.cos(angle) * dist + 'px');
+      el.style.setProperty('--y', Math.sin(angle) * dist + 'px');
+      el.style.setProperty('--r', (Math.random()*240 - 120) + 'deg');
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1800);
+    }
+  });
+})();
+</script>
+</body>
+</html>
